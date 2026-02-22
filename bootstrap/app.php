@@ -31,19 +31,19 @@ return Application::configure(basePath: dirname(__DIR__))
         });
 
         $exceptions->render(function (MethodNotAllowedHttpException $e) use($apiController) {
-            return $apiController->responser(null, 402, $e->getMessage());
+            return $apiController->responser(null, 422, $e->getMessage());
         });
 
         $exceptions->render(function (Exception $e) use($apiController) {
-            return $apiController->responser(null, 402, $e->getMessage());
+            return $apiController->responser(null, 422, $e->getMessage());
         });
 
         $exceptions->render(function (Error $e) use($apiController) {
-            return $apiController->responser(null, 402, $e->getMessage());
+            return $apiController->responser(null, 422, $e->getMessage());
         });
 
         $exceptions->render(function (QueryException $e) use($apiController) {
-            return $apiController->responser(null, 402, $e->getMessage());
+            return $apiController->responser(null, 500, $e->getMessage());
         });
 
         $exceptions->render(function (ModelNotFoundException $e) use($apiController) {
