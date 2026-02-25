@@ -20,7 +20,8 @@ class CategoryResource extends JsonResource
             "name" => $this->name,
             "description" => $this->description,
             "children" => CategoryResource::collection($this->whenLoaded("children")),
-            "parent" => new CategoryResource($this->whenLoaded("parent"))
+            "parent" => new CategoryResource($this->whenLoaded("parent")),
+            "products" => ProductResource::collection($this->whenLoaded("products"))
         ];
     }
 }

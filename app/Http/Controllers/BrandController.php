@@ -86,4 +86,9 @@ class BrandController extends ApiController
 
         return $this->responser(new BrandResource($brand));
     }
+
+    public function products(Brand $brand)
+    {
+        return $this->responser(new BrandResource($brand->load("products")));
+    }
 }
